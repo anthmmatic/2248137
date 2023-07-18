@@ -42,7 +42,7 @@ jobs:
           open /Applications/Xcode_15.0.app/Contents/Developer/Applications/Simulator.app/
           echo "[done] Opened"
           echo "[start] Create"
-          phone2=$(/Applications/Xcode_15.0.app/Contents/Developer/usr/bin/simctl create iPhone-sios1839ti com.apple.CoreSimulator.SimDeviceType.iPhone-14 com.apple.CoreSimulator.SimRuntime.iOS-17-0)
+          phone2=$(/Applications/Xcode_15.0.app/Contents/Developer/usr/bin/simctl create iPhone-sios1839ti com.apple.CoreSimulator.SimDeviceType.iPhone-14 com.apple.CoreSimulator.SimRuntime.iOS-16-4)
           echo "${phone2}"
           echo "[done] Created"
           echo "[start] Boot"

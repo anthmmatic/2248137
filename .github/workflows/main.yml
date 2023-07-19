@@ -3,7 +3,6 @@ on:
 
 jobs:
   job-14:
-    if: false
     runs-on: macos-13
     steps:
       - run: sudo xcode-select -s /Applications/Xcode_14.3.1.app
@@ -25,7 +24,7 @@ jobs:
           echo "${boot1}"
           echo "[done] Booted"
           echo "[start] Navigate"
-          nav1=$(/Applications/Xcode_14.3.1.app/Contents/Developer/usr/bin/simctl openurl booted 'https://google.com') 
+          nav1=$(/Applications/Xcode_14.3.1.app/Contents/Developer/usr/bin/simctl openurl ${phone1} 'https://google.com') 
           echo "${nav1}"
           echo "[done] Navigated"
           
@@ -55,7 +54,7 @@ jobs:
           echo "${debug2}"
           echo "[done] Configured Debug Logs"
           echo "[start] Navigate"
-          nav2=$(/Applications/Xcode_15.0.app/Contents/Developer/usr/bin/simctl openurl booted 'https://google.com')
+          nav2=$(/Applications/Xcode_15.0.app/Contents/Developer/usr/bin/simctl openurl ${phone2} 'https://google.com')
           echo "${nav2}"
           echo "[done] Navigated"
             

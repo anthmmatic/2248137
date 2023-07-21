@@ -7,4 +7,4 @@ jobs:
   job-name:
     runs-on: macos-13
     steps:
-      - run: ls -la "~/Library/Developer/Xcode/iOS DeviceSupport/"
+      - run: ls -R -la ~/Library/Developer/Xcode/

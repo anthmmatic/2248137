@@ -10,9 +10,9 @@ jobs:
           xcodebuild -downloadPlatform iOS
           open /Applications/Xcode_14.3.1.app/Contents/Developer/Applications/Simulator.app/
       - run: |
-          ls -R ~/Library/Caches
-          ls -R ~/Library/Developer/CoreSimulator/Caches
-          ls -R ~/Library/Developer/Xcode/DerivedData/
+          rm -R ~/Library/Caches
+          rm -R ~/Library/Developer/CoreSimulator/Caches
+          rm -R ~/Library/Developer/Xcode/DerivedData/
       - name: Open devices
         run: |
           echo "[start] Open"

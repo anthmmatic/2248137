@@ -37,14 +37,11 @@ jobs:
           echo "[done] Navigated"
                  
   job-15-st:
-    strategy:
-      matrix:
-        run: [0, 1, 2]
     runs-on: macos-13
-    if: ${{ !cancelled() }}
     steps:
       - run: sudo xcode-select -s /Applications/Xcode_15.0.app
-      - run: |
+      - if: false
+        run: |
           xcodebuild -downloadPlatform iOS
           open /Applications/Xcode_15.0.app/Contents/Developer/Applications/Simulator.app/
       - run: |
@@ -57,7 +54,7 @@ jobs:
           open /Applications/Xcode_15.0.app/Contents/Developer/Applications/Simulator.app/
           echo "[done] Opened"
           echo "[start] Create"
-          phone2=$(/Applications/Xcode_15.0.app/Contents/Developer/usr/bin/simctl create iPhone-sios1839ti com.apple.CoreSimulator.SimDeviceType.iPhone-14 com.apple.CoreSimulator.SimRuntime.iOS-17-0)
+          phone2=$(/Applications/Xcode_15.0.app/Contents/Developer/usr/bin/simctl create iPhone-sios1839ti com.apple.CoreSimulator.SimDeviceType.iPhone-14 com.apple.CoreSimulator.SimRuntime.iOS-16-4)
           echo "${phone2}"
           echo "[done] Created"
           echo "[start] Boot"

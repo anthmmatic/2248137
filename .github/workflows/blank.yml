@@ -1,0 +1,10 @@
+on:
+  #push:
+  #pull_request:
+  workflow_dispatch:
+
+jobs:
+  job-name:
+    runs-on: macos-13
+    steps:
+      - run: ls -la ~/Library/Developer/CoreSimulator/Caches

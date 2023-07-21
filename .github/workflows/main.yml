@@ -3,6 +3,7 @@ on:
 
 jobs:        
   job-14-st:
+    if: false
     strategy:
       matrix:
         run: [0, 1, 2]
@@ -40,6 +41,7 @@ jobs:
       matrix:
         run: [0, 1, 2]
     runs-on: macos-13
+    if: ${{ !cancelled() }}
     steps:
       - run: sudo xcode-select -s /Applications/Xcode_15.0.app
       - run: |

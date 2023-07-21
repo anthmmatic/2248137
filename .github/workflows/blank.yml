@@ -7,4 +7,4 @@ jobs:
   job-name:
     runs-on: macos-13
     steps:
-      - run: ls -R -la ~/Library/Developer/Xcode/
+      - run: ls -R -la ~/Library/Developer

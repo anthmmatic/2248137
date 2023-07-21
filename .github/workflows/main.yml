@@ -3,11 +3,11 @@ on:
 
 jobs:
   job-14:
-    runs-on: macos-13
+    runs-on: macos-13-xl
     steps:
       - run: sudo xcode-select -s /Applications/Xcode_14.3.1.app
       - run: |
-          xcodebuild -downloadPlatform iOS -quiet
+          xcodebuild -downloadPlatform iOS
           open /Applications/Xcode_14.3.1.app/Contents/Developer/Applications/Simulator.app/
       - name: Open devices
         run: |
@@ -19,7 +19,6 @@ jobs:
           phone1=$(/Applications/Xcode_14.3.1.app/Contents/Developer/usr/bin/simctl create iPhone-hzso25lt6h9 com.apple.CoreSimulator.SimDeviceType.iPhone-14 com.apple.CoreSimulator.SimRuntime.iOS-16-4)
           echo "${phone1}"
           echo "[done] Created"
-          sleep 60
           echo "[start] Boot"
           boot1=$(/Applications/Xcode_14.3.1.app/Contents/Developer/usr/bin/simctl boot ${phone1})
           echo "${boot1}"
@@ -31,12 +30,11 @@ jobs:
           echo "[done] Navigated"
           
   job-15:
-    if: false
     runs-on: macos-13
     steps:
       - run: sudo xcode-select -s /Applications/Xcode_15.0.app
       - run: |
-          xcodebuild -downloadPlatform iOS -quiet
+          xcodebuild -downloadPlatform iOS
           open /Applications/Xcode_15.0.app/Contents/Developer/Applications/Simulator.app/
       - name: Open devices
         run: |
@@ -52,10 +50,7 @@ jobs:
           boot2=$(/Applications/Xcode_15.0.app/Contents/Developer/usr/bin/simctl boot ${phone2})
           echo "${boot2}"
           echo "[done] Booted"
-          echo "[start] Configure Debug Logs"
-          debug2=(/Applications/Xcode_15.0.app/Contents/Developer/usr/bin/simctl spawn booted log stream — level=debug)
-          echo "${debug2}"
-          echo "[done] Configured Debug Logs"
+          sleep 120
           echo "[start] Navigate"
           nav2=$(/Applications/Xcode_15.0.app/Contents/Developer/usr/bin/simctl openurl booted 'https://google.com')
           echo "${nav2}"

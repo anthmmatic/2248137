@@ -56,7 +56,34 @@ jobs:
           echo "${nav1}"
           echo "[done] Navigated"
           
-  job-15:
+  job-15-xl:
+    runs-on: macos-13-xl
+    steps:
+      - run: sudo xcode-select -s /Applications/Xcode_15.0.app
+      - run: |
+          xcodebuild -downloadPlatform iOS
+          open /Applications/Xcode_15.0.app/Contents/Developer/Applications/Simulator.app/
+      - name: Open devices
+        run: |
+          xcodebuild -downloadPlatform iOS
+          echo "[start] Open"
+          open /Applications/Xcode_15.0.app/Contents/Developer/Applications/Simulator.app/
+          echo "[done] Opened"
+          echo "[start] Create"
+          phone2=$(/Applications/Xcode_15.0.app/Contents/Developer/usr/bin/simctl create iPhone-sios1839ti com.apple.CoreSimulator.SimDeviceType.iPhone-14 com.apple.CoreSimulator.SimRuntime.iOS-17-0)
+          echo "${phone2}"
+          echo "[done] Created"
+          echo "[start] Boot"
+          boot2=$(/Applications/Xcode_15.0.app/Contents/Developer/usr/bin/simctl boot ${phone2})
+          echo "${boot2}"
+          echo "[done] Booted"
+          sleep 120
+          echo "[start] Navigate"
+          nav2=$(/Applications/Xcode_15.0.app/Contents/Developer/usr/bin/simctl openurl booted 'https://google.com')
+          echo "${nav2}"
+          echo "[done] Navigated"
+          
+  job-15-st:
     runs-on: macos-13
     steps:
       - run: sudo xcode-select -s /Applications/Xcode_15.0.app

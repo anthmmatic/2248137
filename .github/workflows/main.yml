@@ -2,8 +2,35 @@ on:
   workflow_dispatch:
 
 jobs:
-  job-14:
+  job-14-xl:
     runs-on: macos-13-xl
+    steps:
+      - run: sudo xcode-select -s /Applications/Xcode_14.3.1.app
+      - run: |
+          xcodebuild -downloadPlatform iOS
+          open /Applications/Xcode_14.3.1.app/Contents/Developer/Applications/Simulator.app/
+      - name: Open devices
+        run: |
+          xcodebuild -downloadPlatform iOS
+          echo "[start] Open"
+          open /Applications/Xcode_14.3.1.app/Contents/Developer/Applications/Simulator.app/
+          echo "[done] Opened"
+          echo "[start] Create"
+          phone1=$(/Applications/Xcode_14.3.1.app/Contents/Developer/usr/bin/simctl create iPhone-hzso25lt6h9 com.apple.CoreSimulator.SimDeviceType.iPhone-14 com.apple.CoreSimulator.SimRuntime.iOS-16-4)
+          echo "${phone1}"
+          echo "[done] Created"
+          echo "[start] Boot"
+          boot1=$(/Applications/Xcode_14.3.1.app/Contents/Developer/usr/bin/simctl boot ${phone1})
+          echo "${boot1}"
+          echo "[done] Booted"
+          sleep 120
+          echo "[start] Navigate"
+          nav1=$(/Applications/Xcode_14.3.1.app/Contents/Developer/usr/bin/simctl openurl booted 'https://google.com') 
+          echo "${nav1}"
+          echo "[done] Navigated"
+          
+  job-14-st:
+    runs-on: macos-13
     steps:
       - run: sudo xcode-select -s /Applications/Xcode_14.3.1.app
       - run: |

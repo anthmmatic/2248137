@@ -3,6 +3,9 @@ on:
 
 jobs:        
   job-14-st:
+    strategy:
+      matrix:
+        run: [0, 1, 2]
     runs-on: macos-13
     steps:
       - run: sudo xcode-select -s /Applications/Xcode_14.3.1.app
@@ -14,6 +17,7 @@ jobs:
           rm -R ~/Library/Developer/CoreSimulator/Caches
       - name: Open devices
         run: |
+          xcodebuild -downloadPlatform iOS
           echo "[start] Open"
           open /Applications/Xcode_14.3.1.app/Contents/Developer/Applications/Simulator.app/
           echo "[done] Opened"
@@ -32,13 +36,18 @@ jobs:
           echo "[done] Navigated"
                  
   job-15-st:
-    if: false
+    strategy:
+      matrix:
+        run: [0, 1, 2]
     runs-on: macos-13
     steps:
       - run: sudo xcode-select -s /Applications/Xcode_15.0.app
       - run: |
           xcodebuild -downloadPlatform iOS
           open /Applications/Xcode_15.0.app/Contents/Developer/Applications/Simulator.app/
+      - run: |
+          rm -R ~/Library/Caches
+          rm -R ~/Library/Developer/CoreSimulator/Caches
       - name: Open devices
         run: |
           xcodebuild -downloadPlatform iOS

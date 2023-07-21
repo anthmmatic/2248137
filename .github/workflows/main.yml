@@ -31,9 +31,10 @@ jobs:
   job-15:
     runs-on: macos-13
     steps:
+      - if: false
       - run: sudo xcode-select -s /Applications/Xcode_15.0.app
       - run: |
-          xcodebuild -downloadPlatform iOS
+          xcodebuild -downloadPlatform iOS -quiet
           open /Applications/Xcode_15.0.app/Contents/Developer/Applications/Simulator.app/
       - name: Open devices
         run: |
@@ -61,6 +62,7 @@ jobs:
   job-exp:
     runs-on: macos-13
     steps:
+      - if: false
       - run: sudo xcode-select -s /Applications/Xcode_15.0.app
       - run: |
           xcodebuild -downloadPlatform iOS

@@ -29,9 +29,9 @@ jobs:
           echo "[done] Navigated"
           
   job-15:
+    if: false
     runs-on: macos-13
     steps:
-      - if: false
       - run: sudo xcode-select -s /Applications/Xcode_15.0.app
       - run: |
           xcodebuild -downloadPlatform iOS -quiet
@@ -60,9 +60,9 @@ jobs:
           echo "[done] Navigated"
           
   job-exp:
+    if: false
     runs-on: macos-13
     steps:
-      - if: false
       - run: sudo xcode-select -s /Applications/Xcode_15.0.app
       - run: |
           xcodebuild -downloadPlatform iOS

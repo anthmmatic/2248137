@@ -43,10 +43,10 @@ jobs:
       - name: Open devices
         run: |
           xcodebuild -downloadPlatform iOS
-          echo "------ SIM 1 ----------------------------------------------------------------
           echo "[start] Open"
           open /Applications/Xcode_14.3.1.app/Contents/Developer/Applications/Simulator.app/
           echo "[done] Opened"
+          echo "------ SIM 1 ----------------------------------------------------------------
           echo "[start] Create"
           phone1=$(/Applications/Xcode_14.3.1.app/Contents/Developer/usr/bin/simctl create iPhone-hzso25lt6h9 com.apple.CoreSimulator.SimDeviceType.iPhone-14 com.apple.CoreSimulator.SimRuntime.iOS-16-4)
           echo "${phone1}"
@@ -60,9 +60,6 @@ jobs:
           echo "${nav1}"
           echo "[done] Navigated"
           echo "------ SIM 2 ----------------------------------------------------------------
-          echo "[start] Open"
-          open /Applications/Xcode_14.3.1.app/Contents/Developer/Applications/Simulator.app/
-          echo "[done] Opened"
           echo "[start] Create"
           phone2=$(/Applications/Xcode_14.3.1.app/Contents/Developer/usr/bin/simctl create iPhone-abcdefghijk com.apple.CoreSimulator.SimDeviceType.iPhone-14 com.apple.CoreSimulator.SimRuntime.iOS-16-4)
           echo "${phone2}"
@@ -76,9 +73,6 @@ jobs:
           echo "${nav2}"
           echo "[done] Navigated"
           echo "------ SIM 3 ----------------------------------------------------------------
-          echo "[start] Open"
-          open /Applications/Xcode_14.3.1.app/Contents/Developer/Applications/Simulator.app/
-          echo "[done] Opened"
           echo "[start] Create"
           phone3=$(/Applications/Xcode_14.3.1.app/Contents/Developer/usr/bin/simctl create iPhone-lmnopqrstuv com.apple.CoreSimulator.SimDeviceType.iPhone-14 com.apple.CoreSimulator.SimRuntime.iOS-16-4)
           echo "${phone3}"

@@ -55,6 +55,7 @@ jobs:
           boot1=$(/Applications/Xcode_14.3.1.app/Contents/Developer/usr/bin/simctl boot ${phone1})
           echo "${boot1}"
           echo "[done] Booted"
+          sleep 30
           echo "[start] Navigate"
           nav1=$(/Applications/Xcode_14.3.1.app/Contents/Developer/usr/bin/simctl openurl ${phone1} 'https://google.com') 
           echo "${nav1}"
@@ -68,6 +69,7 @@ jobs:
           boot2=$(/Applications/Xcode_14.3.1.app/Contents/Developer/usr/bin/simctl boot ${phone2})
           echo "${boot2}"
           echo "[done] Booted"
+          sleep 30
           echo "[start] Navigate"
           nav1=$(/Applications/Xcode_14.3.1.app/Contents/Developer/usr/bin/simctl openurl ${phone2} 'https://google.com') 
           echo "${nav2}"
@@ -81,6 +83,7 @@ jobs:
           boot3=$(/Applications/Xcode_14.3.1.app/Contents/Developer/usr/bin/simctl boot ${phone3})
           echo "${boot3}"
           echo "[done] Booted"
+          sleep 30
           echo "[start] Navigate"
           nav3=$(/Applications/Xcode_14.3.1.app/Contents/Developer/usr/bin/simctl openurl ${phone3} 'https://google.com') 
           echo "${nav3}"

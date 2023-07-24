@@ -37,6 +37,9 @@ jobs:
       - run: |
           xcodebuild -downloadPlatform iOS
           open /Applications/Xcode_14.3.1.app/Contents/Developer/Applications/Simulator.app/
+      - run: |
+          rm -R ~/Library/Caches
+          rm -R ~/Library/Developer/CoreSimulator/Caches
       - name: Open devices
         run: |
           xcodebuild -downloadPlatform iOS
